@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Images]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [KeyId] INT NOT NULL, 
+    [Image] NVARCHAR(MAX) NOT NULL
+)

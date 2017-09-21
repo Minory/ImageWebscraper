@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Keyword]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Keyword] NVARCHAR(128) NOT NULL
+)

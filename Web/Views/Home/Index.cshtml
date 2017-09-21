@@ -1,31 +1,26 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home";
 }
+<body ng-controller="scrapeController as sCtrl">
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1><i class="fa fa-crosshairs" aria-hidden="true" style="color:#c60919;"></i> Webscraper</h1>
+    <p class="lead">This app uses <a class="label label-warning" href="http://html-agility-pack.net/?z=codeplex">HtmlAgilityPack</a> to scrape images from <a class="label label-default" href="https://pixabay.com/">Pixabay.com</a>.</p>
+    <form name="scrapeForm">
+        <input type="text" placeholder="Enter a keyword" ng-model="sCtrl.keyword" required>
+        <button class="btn btn-primary btn-lg" ng-click="sCtrl.search()" ng-disabled="scrapeForm.$invalid">
+            <span ng-hide="sCtrl.load"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+            <span ng-show="sCtrl.load" ng-cloak><i class="fa fa-spinner fa-spin fa-fw" aria-hidden="true"></i> Loading</span>
+        </button>
+    </form>
 </div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<div class="container row">
+    <div ng-repeat="item in sCtrl.items" class="thumbnail col-sm-3" >
+        <img ng-src="{{item}}" class="img-responsive" style="width:216px; height:216px;">
     </div>
 </div>
+    @section scripts{
+        <script src="~/Scripts/ScrapeCtrl.js"></script>
+        <script src="~/Scripts/ScrapeService.js"></script>
+    }
+</body>
