@@ -8,12 +8,24 @@
 
     function scrapeService($http, $q) {
         return {
-            get: _get
+            get: _get,
+            post: _post
         };
         function _get(keyword) {
             var settings = {
                 url: "/api/scrape/" + keyword,
                 method: 'GET',
+                cache: false,
+                responseType: 'json',
+                withCredentials: true
+            };
+            return $http(settings)
+                .then(_complete, _fail);
+        }
+        function _post(keyword) {
+            var settings = {
+                url: "/api/scrape/" + keyword,
+                method: 'POST',
                 cache: false,
                 responseType: 'json',
                 withCredentials: true

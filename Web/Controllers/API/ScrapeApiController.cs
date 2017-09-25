@@ -20,7 +20,12 @@ namespace WebScraper.Web.Controllers.API
             response = scrapeService.Scrape(keyword);
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
-
-
+        [Route("{keyword}"), HttpPost]
+        public HttpResponseMessage PostByKeyword(string keyword)
+        {
+            List<string> response = new List<string>();
+            response = scrapeService.InsertKeyword(keyword);
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
     }
 }
