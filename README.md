@@ -2,7 +2,7 @@
 
 **NOTE:** This application uses ASP.NET, C#, MVC5, HTML5, CSS3, JS, AngularJS 1.X, SQL, and WebAPI.
 
-## What this app uses and does
+## About this app
 
 This app mainly uses the **HTML Agility Pack** to scrape `Pixabay.com`.
 
