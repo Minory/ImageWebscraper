@@ -5,6 +5,7 @@
 ## About this app
 
 This app mainly uses the **HTML Agility Pack** to scrape `Pixabay.com`.
+* [Html Agility Pack](http://html-agility-pack.net/)
 
 The index page displays a simple search input form.
 
