@@ -13,6 +13,7 @@ namespace WebScraper.Web.Controllers.API
     {
         ScrapeService scrapeService = new ScrapeService();
 
+        //GET method scrapes target website based on keyword string
         [Route("{keyword}"), HttpGet]
         public HttpResponseMessage GetById(string keyword)
         {
@@ -20,6 +21,7 @@ namespace WebScraper.Web.Controllers.API
             response = scrapeService.Scrape(keyword);
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
+        //POST method enters list of image links based on keyword
         [Route("{keyword}"), HttpPost]
         public HttpResponseMessage PostByKeyword(string keyword)
         {
